@@ -18,17 +18,11 @@ const routes = [
         path: "/login",
         name: Login,
         component: Login,
-        meta: {
-            middleware: [Middleware.guest]
-        }
     },
     {
         path: "/register",
         name: Register,
         component: Register,
-        meta: {
-            middleware: [Middleware.guest]
-        }
     },
     {
         path: "/dashboard",
@@ -37,16 +31,14 @@ const routes = [
         meta: {
             middleware: [Middleware.auth]
         },
-        children: [
-            {
-                path: "/dashboard/userprofile",
-                name: "dashboard.userprofile",
-                component: UserProfile,
-                meta: {
-                    middleware: [Middleware.auth, Middleware.isSubscribed]
-                }
-            },
-        ]
+    },
+    {
+        path: "/dashboard/userprofile",
+        name: "dashboard.userprofile",
+        component: UserProfile,
+        meta: {
+            middleware: [Middleware.auth, Middleware.isSubscribed]
+        }
     },
 
 ]
@@ -72,7 +64,8 @@ router.beforeEach((to, from, next) => {
     }
 
     return middleware[0] ({
-        ...context
+        ...context,
+        next: middlewarePipeline(context, middleware, 1)
     })
 })
 
