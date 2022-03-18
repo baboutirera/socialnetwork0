@@ -6,6 +6,7 @@ import Dashboard from "../views/pages/Dashboard.vue";
 import UserProfile from "../views/pages/UserProfile.vue";
 import Middleware from "../middleware";
 import store from "../store";
+import middlewarePipeline from "../middleware";
 
 const routes = [
     {
@@ -38,8 +39,8 @@ const routes = [
         },
         children: [
             {
-                path: "/userprofile",
-                name: UserProfile,
+                path: "/dashboard/userprofile",
+                name: "dashboard.userprofile",
                 component: UserProfile,
                 meta: {
                     middleware: [Middleware.auth, Middleware.isSubscribed]

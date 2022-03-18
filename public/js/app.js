@@ -18016,6 +18016,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var routes = [{
   path: "/",
   name: _views_layout_Container_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -18042,8 +18043,8 @@ var routes = [{
     middleware: [_middleware__WEBPACK_IMPORTED_MODULE_5__["default"].auth]
   },
   children: [{
-    path: "/userprofile",
-    name: _views_pages_UserProfile_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    path: "/dashboard/userprofile",
+    name: "dashboard.userprofile",
     component: _views_pages_UserProfile_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     meta: {
       middleware: [_middleware__WEBPACK_IMPORTED_MODULE_5__["default"].auth, _middleware__WEBPACK_IMPORTED_MODULE_5__["default"].isSubscribed]
@@ -18108,8 +18109,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var state = {
   user: {
-    loggedIn: false,
-    isSubscribed: false,
+    loggedIn: true,
+    isSubscribed: true,
     token: !localStorage.getItem('token') || ''
   }
 };
