@@ -2,7 +2,7 @@ const state = {
     user: {
         loggedIn: false,
         isSubscribed: false,
-        token: localStorage.getItem('token' || '')
+        token: !localStorage.getItem('token')  || ''
     },
 
 }
@@ -19,13 +19,10 @@ const getters = {
     auth(state) {
         return state.user
     },
-    loggedIn(state) {
-        return state.token == null
-    }
 }
 
 export default {
-    namespaced: true,
+    namespaced: false,
     state,
     getters,
     actions,
