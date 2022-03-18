@@ -21,7 +21,7 @@ const app = createApp({});
  */
 
 components.forEach(component => {
-    app.component(component.name, component)
+    app.component(component.name, component);
 })
 
 // const files = require.context('./', true, /\.vue$/i)

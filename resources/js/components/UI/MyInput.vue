@@ -1,6 +1,7 @@
 <template>
     <input :value="modelValue" @input="updateInput" class="input" type="text">
 </template>
+
 <script>
     export default {
         name: "my-input",
@@ -16,6 +17,7 @@
         }
     }
 </script>
+
 <style scoped lang="scss">
     .input {
         width: 100%;

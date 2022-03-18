@@ -2,10 +2,10 @@
     <div>
         <div class="login-page">
             <form class="form">
-                <my-input text="text" placeholder="email address" v-model="user.email"></my-input>
-                <my-input text="text" placeholder="password" v-model="user.password"></my-input>
-                <my-button type="submit">login</my-button>
-                <router-link to="/register"><p class="message">Non enregistré ?<a href="#">créer un compte</a></p></router-link>
+                <my-input text="text" placeholder="email address" v-model="user.email" />
+                <my-input text="text" placeholder="password" v-model="user.password" />
+                <my-button type="submit" @click.prevent="login">login</my-button>
+                <router-link to="/register"><p class="message">Non enregistré ? <a href="#">créer un compte</a></p></router-link>
             </form>
         </div>
     </div>
@@ -13,13 +13,20 @@
 
 <script>
     export default {
-        name: "Login",
+        name: "login",
         data: () => ({
             user: {
                 email: "",
                 password: "",
             }
-        })
+        }),
+
+        methods: {
+            login(){
+                this.$store.dispatch('auth/loginUser', this.user)
+            }
+        }
+
     }
 </script>
 

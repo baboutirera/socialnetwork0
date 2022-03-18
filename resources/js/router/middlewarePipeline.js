@@ -8,7 +8,7 @@ function middlewarePipeline(context, middleware, index) {
 
     return () => {
         const nextPipeline = middlewarePipeline(
-            context, middleware, index+1
+            context, middleware, index + 1
         )
 
         nextMiddleware({...context, next: nextPipeline})

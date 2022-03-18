@@ -13,7 +13,7 @@
         background-color: var(--color-primary-light);
         color: #fff;
         border-radius: 0;
-        font-family: 'Josefin Sans', Sans-serif;
+        font-family: 'Josefin Sans', sans-serif;
         font-size: 1.5rem;
         text-transform: uppercase;
         padding: 1.8rem 3rem;
