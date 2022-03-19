@@ -14,6 +14,7 @@
 <script>
     export default {
         name: "login",
+
         data: () => ({
             user: {
                 email: "",
@@ -21,11 +22,21 @@
             }
         }),
 
+        created() {
+            this.checkUserState();
+        },
+
         methods: {
-            login(){
+            login() {
                 this.$store.dispatch('auth/loginUser', this.user)
+            },
+
+            checkUserState() {
+                this.$store.dispatch('auth/setLoggedInstate', this.user);
             }
-        }
+        },
+
+
 
     }
 </script>

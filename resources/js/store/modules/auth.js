@@ -45,17 +45,38 @@ const actions = {
                     reject(error);
                 })
         })
-    }
+    },
 
+    logout(ctx) {
+        return new Promise((resolve) => {
+            localStorage.removeItem('token');
+            ctx.commit('setLoggedIn', false);
+            resolve(true);
+            window.location.replace('/Login');
+        })
+    },
+
+    setLoggedInstate(ctx) {
+        return new Promise((resolve) => {
+            if (localStorage.getItem('token')) {
+                ctx.commit('setLoggedIn', true);
+                resolve(true);
+            }
+            ctx.commit('setLoggedIn', false);
+            resolve(false);
+        })
+    }
 }
 
 const mutations = {
-
+    setLoggedIn(state, payload) {
+        state.isLoggedIn = payload
+    }
 }
 
 const getters = {
     loggedIn(state) {
-        return state.loggedIn
+        return state.isLoggedIn
     },
 
     userDetails(state) {
